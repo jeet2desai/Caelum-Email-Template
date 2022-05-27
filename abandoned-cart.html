@@ -4,6 +4,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Abandoned Cart</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -16,7 +17,6 @@
       integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor"
       crossorigin="anonymous"
     />
-    <title>Order Confirm</title>
     <style>
       * {
         margin: 0;
@@ -54,7 +54,7 @@
         color: blue;
       }
 
-      /* Email Content */
+      /* Content */
       .email-content {
         margin-top: 30px;
         margin-bottom: 30px;
@@ -65,10 +65,10 @@
       .email-content .heading .heading-content {
         margin-top: 15px;
       }
-      .email-content .heading .heading-content p,
-      .email-content .shipping-summary .summary p {
+      .email-content .heading .heading-content p {
         margin-bottom: 0;
       }
+
       .email-content .track-button {
         text-align: center;
       }
@@ -79,46 +79,26 @@
         border: none;
         padding: 20px 70px;
       }
-      .email-content .shipping-summary {
-        background-color: #f5f5f5;
-        display: flex;
-        margin-top: 20px;
-      }
-      .email-content .shipping-summary .shipping,
-      .email-content .shipping-summary .summary {
-        padding: 20px;
-        width: 50%;
-      }
-      .email-content .shipping-summary .shipping {
-        border-right: 1px solid #d3d3d3;
-      }
+
       .email-content .orders {
-        margin-top: 30px;
-      }
-      .email-content .order img {
-        width: 100px;
-        border-radius: 5px;
+        margin-top: 20px;
+        margin-bottom: 40px;
       }
       .email-content .order {
-        margin-bottom: 10px;
-      }
-      .email-content .order p {
-        margin-bottom: 0;
-      }
-      .email-content .total-info {
         display: flex;
-        justify-content: flex-end;
-        margin-top: 10px;
-        margin-bottom: 10px;
+        justify-content: flex-start;
+        align-items: center;
       }
-      .email-content .total-info .total-right {
-        width: 30%;
+      .email-content .order .content {
+        margin-left: 10px;
       }
-      .email-content .total-info .total-right p {
-        margin-bottom: 5px;
+      .email-content .order .content p {
+        margin-bottom: 0;
+        font-size: 20px;
       }
-      .email-content .total-info .total-right .right {
-        float: right;
+      .email-content .orders .order-image img {
+        width: 100px;
+        border-radius: 5px;
       }
     </style>
   </head>
@@ -131,97 +111,32 @@
     </div>
     <div class="email-content container">
       <div class="heading">
-        <h2>Thank you for your purchase!</h2>
+        <h2>You left something in your cart!</h2>
         <div class="heading-content">
-          <p>Hey <b>Gaurav</b>, we have recieved your order.</p>
-          <p>We'll drop an another email when your order ships.</p>
+          <p>Hey <b>Gaurav</b>, we noticed you left something in your cart.</p>
+          <p>You can get &#8377;100 Off if you checkout in next 6 hrs.</p>
         </div>
         <p></p>
       </div>
-      <div class="track-button">
-        <button>Track your order</button>
-      </div>
-      <div class="shipping-summary">
-        <div class="shipping">
-          <b>SHIPPING ADDRESS:</b>
-          <address>
-            Gaurav Shah 33 Palak Avenue, Satelite, 342343 Ahmedabad
-          </address>
-        </div>
-        <div class="summary">
-          <b>SUMMARY:</b>
-          <p>Order #: <b>1234567</b></p>
-          <p>Order Date: <b>March 01, 2020</b></p>
-          <p>Order Total: <b>&#8377; 12345</b></p>
-        </div>
-      </div>
       <div class="orders">
-        <div class="order row">
-          <div class="col-2">Items Ordered</div>
-          <div class="col-6">Name</div>
-          <div class="col-2">Qty</div>
-          <div class="col-2">Price</div>
-        </div>
-        <div class="order row">
-          <div class="col-2">
-            <img
-              src="https://caelumgaurav-65468-ruby.b65468.dev.eastus.az.svc.builder.cafe/rails/active_storage/blobs/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBBcW9MIiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--66af2a0291a002339ccaea802a878effc4c98645/825dce64-031e-4a4c-815a-c78243b4eca4.jpg"
-              alt=""
-            />
-          </div>
-          <div class="col-6">
-            <b>ADIDAS</b>
-            <p>Men Green Grey Printed Round Neck Pure Cotton T-shirt</p>
-          </div>
-          <div class="col-2"><b>1</b></div>
-          <div class="col-2"><b>&#8377; 1234</b></div>
-        </div>
-        <div class="order row">
-          <div class="col-2">
+        <p>Items in your cart</p>
+        <div class="order">
+          <div class="order-image">
             <img
               src="https://caelumgaurav-65468-ruby.b65468.dev.eastus.az.svc.builder.cafe/rails/active_storage/blobs/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBBaGNNIiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--c415a25784363258037d016e5d0483a33e8db13f/3440f1f9-002e-423f-938a-90fd16dd5e351596544358091-Roadster-Men-Tshirts-5761596544356729-5.webp"
               alt=""
             />
           </div>
-          <div class="col-6">
-            <b>ADIDAS</b>
+          <div class="content">
+            <p><b>ADIDAS</b></p>
             <p>Men Green Grey Printed Round Neck Pure Cotton T-shirt</p>
             <p>Size: L</p>
-          </div>
-          <div class="col-2"><b>2</b></div>
-          <div class="col-2"><b>&#8377; 5678</b></div>
-        </div>
-        <hr />
-        <div class="total-info">
-          <!-- <div></div> -->
-          <div class="total-right">
-            <p>
-              <span>Total MRP</span>
-              <span class="right">&#8377;12,123</span>
-            </p>
-            <p>
-              <span>Discount on MRP</span>
-              <span class="right">&#8377;12,123</span>
-            </p>
-            <p>
-              <span>Discount Coupon</span>
-              <span class="right">&#8377;12,123</span>
-            </p>
-            <p>
-              <span>Tax</span>
-              <span class="right">&#8377;12,123</span>
-            </p>
-            <p>
-              <span>Delivery Fee</span>
-              <span class="right">&#8377;12,123</span>
-            </p>
-            <hr />
-            <p>
-              <span><b>Total Amount</b></span>
-              <span class="right"><b>&#8377;12,1232</b></span>
-            </p>
+            <p>Qty: 1</p>
           </div>
         </div>
+      </div>
+      <div class="track-button">
+        <button>Visit cart</button>
       </div>
     </div>
     <div class="footer">
