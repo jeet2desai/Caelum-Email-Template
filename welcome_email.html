@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor"
+      crossorigin="anonymous"
+    />
+    <title>Welcome Email</title>
+    <style>
+      * {
+        margin: 0;
+        box-sizing: border-box;
+        font-family: "Roboto", sans-serif;
+      }
+
+      /* Header */
+      .header {
+        padding: 30px;
+        text-align: center;
+        background-color: black;
+      }
+
+      /* Footer */
+      .footer {
+        text-align: center;
+        background-color: #f5f5f5;
+        padding: 30px 10px 20px 10px;
+      }
+      .footer .social-icon img {
+        width: 50px;
+        height: 50px;
+        margin: 0px 20px;
+      }
+      .footer .footer-content {
+        margin-top: 24px;
+      }
+      .footer .footer-content p {
+        font-size: 18px;
+        margin-bottom: 20px;
+        color: #666666;
+      }
+      .footer .footer-content p span {
+        color: blue;
+      }
+
+      /* Email Content */
+      .email-content {
+        text-align: center;
+        padding: 34px;
+      }
+      .email-content .email-content-heading h1 {
+        font-weight: 400;
+        margin-bottom: 18px;
+      }
+      .email-content .email-content-heading p {
+        font-size: 18px;
+        line-height: 24px;
+      }
+      .email-content .shop-by-price .title {
+        margin-top: 30px;
+        margin-bottom: 10px;
+      }
+      .email-content .shop-by-price .offers {
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        width: 100%;
+      }
+      .email-content .shop-by-price .offer {
+        display: flex;
+        align-items: center;
+        height: 250px;
+        margin-bottom: 20px;
+      }
+      .email-content .shop-by-price .offer img {
+        width: 100%;
+        object-fit: cover;
+        height: 250px;
+      }
+      .email-content .shop-by-price .offer .left-block {
+        padding: 20px;
+        width: 50%;
+        height: 250px;
+        display: flex;
+        align-items: center;
+      }
+      .email-content .shop-by-price .offer .left-block .inner-left-block {
+        padding: 16px;
+        border: 3px solid white;
+      }
+      .email-content .shop-by-price .offer .inner-left-block .discount {
+        color: white;
+        text-transform: uppercase;
+        font-size: 28px;
+        font-weight: bold;
+        line-height: 30px;
+      }
+      .email-content .shop-by-price .offer .inner-left-block .shop-now {
+        text-transform: uppercase;
+        font-size: 16px;
+        padding: 6px 20px;
+        border: none;
+        background-color: white;
+        color: black;
+        margin-top: 8px;
+        border-radius: 5px;
+      }
+      .email-content .shop-by-price .offer .img-block {
+        width: 50%;
+      }
+      .email-content .browse-store {
+        margin-top: 20px;
+      }
+      .email-content .browse-store button {
+        color: white;
+        background-color: black;
+        border: none;
+        border-radius: 5px;
+        padding: 20px 70px;
+      }
+
+      @media (max-width: 700px) {
+        .email-content .shop-by-price .offer .left-block {
+          padding: 8px;
+        }
+        .email-content .shop-by-price .offer .left-block .inner-left-block {
+          padding: 8px;
+        }
+        .email-content .shop-by-price .offer .inner-left-block .discount {
+          font-size: 20px;
+          line-height: 28px;
+        }
+        .email-content .shop-by-price .offer .inner-left-block .shop-now {
+          padding: 6px 8px;
+        }
+        .email-content .browse-store button {
+          padding: 15px 50px;
+        }
+      }
+      @media (min-width: 600px) and (max-width: 991.98px) {
+        .email-content .shop-by-price .offer .left-block {
+          padding: 12px;
+        }
+        .email-content .shop-by-price .offer .left-block .inner-left-block {
+          padding: 12px;
+        }
+        .email-content .shop-by-price .offer .inner-left-block .shop-now {
+          padding: 6px 8px;
+        }
+      }
+      @media (min-width: 992px) and (max-width: 1199.98px) {
+        .email-content .shop-by-price .offer .left-block {
+          padding: 20px;
+        }
+        .email-content .shop-by-price .offer .left-block .inner-left-block {
+          padding: 20px;
+        }
+      }
+      @media (min-width: 1200px) {
+        .email-content .shop-by-price .offer .left-block {
+          padding: 40px;
+        }
+        .email-content .shop-by-price .offer .left-block .inner-left-block {
+          padding: 35px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="header">
+      <img
+        src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAIgAAAAUCAYAAABWHnVqAAAABHNCSVQICAgIfAhkiAAABFhJREFUaIHtWu1V2zAUvcrp/2YD3AmaTkA6AWzQbAAb4E4AnYAwQdMJCBMQJiBMQDrB7Q89wbMsS7LsENrTe45PPqz3YenpvifJBgGQnAI4ATAHUMmnxlaujXzeGGN2IV1DIH5cAIjpngP4boxZ99A5Ezl6t58AbIwxmwJf56L3o3frN4B1SCfJGYCF+OGesRI/rvr0KckKwLUx5muB76cAKmPMVU7jmuQzLTby+5TkXK6a5IpN+AE0CsSWxtq7dqX2SVae7nTn5OnVfbOTgEzJnCuZ00K7pwP6YktymWo0JXmvHizqqLRflTqVggzgMxU62q1kJpbY2I4d5F5Q57LaXMkkAyph97an3CLm60R9X8NSJAAsjDGrmGKhvwUsHe4DSwAPGe2C9J2JbaHc3jAgVbuxm/cM9lo+j0M3JwAg9PpZ/rtJBYeDPEycmgpAcgHr8CLDh1FSwz+ASn2/yBGQfj5Sv9vsFcjFVatR3Mi8lBY79E0ltdTyO5piBtpav7cUM8Cuj+TzeCk2KDNBc5Y+GWN60a4xZj3yCmYJW/n/Z4ZMdEzqKItIMBzB9rVDS88EzSXsQXMybWF8AuB8H8vmN8Ih+tAN7A/1X6oWqSHL6YCeF0zQLE5Ki73BkDR1CeAutwYSuaIVzB5xiABxgbACcKf+Pw81lsA5hg0SPeatvvwwkoNjoIaN4DXJID12LOG+ABitBvpLUQE23Uvt5vrphGQVKBtq2HJi6bHMkdeuscwFAhH0FhAnzwD8gqU9oy6dIx/kcvc+4YCs947wkhpkR1mzSK0beuwBbwe6Pf60u6UO92N6nQNZtTxKRd1iAr3S6JAtXmbvaRWjN73eZBXj2/J8oC5i5Zm3nvwu1BawDNKIoI6KeJ84h50Bdd/CVNpnDcKB4J/LjA41Xi9918Uiij38SaVZuDn+gWir8UYgOUvNtBiDjGB/HwzS2FfKlHFj0DvYlWwrlfgsQnss0TofIrlU7RqF7SQQbWd9WWQA67hIjgXle1ulRCEF4cvxQ2bfuOAsWQE52Qb7Bsb1GnYLIXRKrO22/ZWZrPPQvR9lXZBIDS6nEnJuxzFaQ+TMxtLZz8zDur76vRmZZGS+1oG9J4Oy1fIxwCLB02W+Hth1sxhf6V4HSdJhWpru24HO8eRxuOdTsG0qyDJ1dwZ5X/1sppnnWD/y9Zg+e+/Hk3dpMmiDzTQaDFYvkB5jxmZsrmpI8jpkXJS61wOy9yHEhjvGT3Z8wJepujcl+Y1k0a6rp/uR5Il7VtF9TPIny2oDPSuf6U0i0X8h9zd9+jD0DJH7yckovmjE06I83Jpt3NN7R4Nk1j6EBMaFJ+8GpeWQap+DXgMonXaWqZssLNzFjk5jjyRv5XK4YkFwiO5LpeeSNqBDKWQZewa2s8et6JqZhBP69TwfO9jX83LX+jN073hu/d0+9ktbLfkBvoSwGXI2JPZmaBaAG9h3WUrZL9g/ofEgOU3Z6dL3BwXrmrGDfM0dAAAAAElFTkSuQmCC"
+        alt=""
+      />
+    </div>
+    <div class="email-content">
+      <div class="email-content-heading">
+        <h1>Welcome to <b>CAELUM</b></h1>
+        <p>
+          We are very excited that you decided to join us. We are looking
+          forward to getting <br />
+          to know you -- as well as to help you in every possible way we can.
+        </p>
+      </div>
+      <div class="shop-by-price">
+        <div class="title">
+          <h2>You can check our current offeres</h2>
+        </div>
+        <div class="offers row">
+          <div class="offer col-12 col-sm-6 col-md-6 col-lg-6">
+            <div class="left-block" style="background-color: #feca38">
+              <div class="inner-left-block" style="background-color: #d53f41">
+                <span class="discount">UNDER &#8377;200</span>
+                <button class="shop-now">SHOP NOW</button>
+              </div>
+            </div>
+            <div class="img-block">
+              <img
+                src="https://caelumgaurav-65468-ruby.b65468.dev.eastus.az.svc.builder.cafe/rails/active_storage/blobs/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBBaVVNIiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--2e5d84592ed6217859e4a76d697ad24cce78004e/istockphoto-1173485056-170667a%20(1).jpg"
+              />
+            </div>
+          </div>
+          <div class="offer col-12 col-sm-6 col-md-6 col-lg-6">
+            <div class="left-block" style="background-color: #bdcd8f">
+              <div class="inner-left-block" style="background-color: #fb7d8b">
+                <span class="discount">50-60% OFF*</span>
+                <button class="shop-now">SHOP NOW</button>
+              </div>
+            </div>
+            <div class="img-block">
+              <img
+                src="https://caelumgaurav-65468-ruby.b65468.dev.eastus.az.svc.builder.cafe/rails/active_storage/blobs/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBBdWNOIiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--e3a2fd21ae91fab84adef9adb5290d89f4475997/d4461682-e19e-46d7-b120-c58b256fe3311650284973300RoadsterMenBlackGreyCheckedCasualSustainableShirt4.png"
+              />
+            </div>
+          </div>
+          <div class="offer col-12 col-sm-6 col-md-6 col-lg-6">
+            <div class="left-block" style="background-color: #feca38">
+              <div class="inner-left-block" style="background-color: #d53f41">
+                <span class="discount">50-60% OFF*</span>
+                <button class="shop-now">SHOP NOW</button>
+              </div>
+            </div>
+            <div class="img-block">
+              <img
+                src="https://caelumgaurav-65468-ruby.b65468.dev.eastus.az.svc.builder.cafe/rails/active_storage/blobs/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBBaWNNIiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--478d66fc484aefd000faf7d1bba8f058e66072b4/istockphoto-92682250-170667a%20(1).jpg"
+              />
+            </div>
+          </div>
+          <div class="offer col-12 col-sm-6 col-md-6 col-lg-6">
+            <div class="left-block" style="background-color: #bdcd8f">
+              <div class="inner-left-block" style="background-color: #fb7d8b">
+                <span class="discount">50-60% OFF*</span>
+                <button class="shop-now">SHOP NOW</button>
+              </div>
+            </div>
+            <div class="img-block">
+              <img
+                src="https://caelumgaurav-65468-ruby.b65468.dev.eastus.az.svc.builder.cafe/rails/active_storage/blobs/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBBaVFNIiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--616ff4c5919d60f6519f0910e846a1f7574b3d3c/TRENDII+BLOG+FEATURE+IMAGES+CARLA-4%20(1).png"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="browse-store">
+        <button>Browse the store</button>
+      </div>
+    </div>
+    <div class="footer">
+      <div class="social-icon">
+        <img
+          src="https://cdn-icons-png.flaticon.com/128/174/174848.png"
+          alt=""
+        />
+        <img
+          src="https://cdn-icons.flaticon.com/png/128/3536/premium/3536424.png?token=exp=1653640902~hmac=7e24246463b42540f59c746d76fcda8b"
+          alt=""
+        />
+        <img
+          src="https://cdn-icons.flaticon.com/png/128/3536/premium/3536505.png?token=exp=1653640968~hmac=eaec13c31551b30642a407a435cdbf19"
+          alt=""
+        />
+        <img
+          src="https://cdn-icons-png.flaticon.com/128/2111/2111463.png"
+          alt=""
+        />
+      </div>
+      <div class="footer-content">
+        <p>Not interestad in updates from CAELUM? <span>Unsubscribe</span></p>
+        <p>&copy; 2022 CAELUM. All Rights Reserved.</p>
+      </div>
+    </div>
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>
