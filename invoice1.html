@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <title>Invoice 1</title>
+    <style>
+      * {
+        margin: 0;
+        box-sizing: border-box;
+        font-family: "Roboto", sans-serif;
+      }
+
+      /* Footer */
+      .footer {
+        text-align: center;
+        background-color: #3d3d3d;
+        color: white;
+        padding: 30px 10px 20px 10px;
+      }
+      .footer .page-right {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+      .footer p {
+        margin-bottom: 18px;
+      }
+
+      /* Invoice */
+      .invoice {
+        padding: 30px;
+      }
+      .invoice .top-logo {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+      .invoice .address {
+        display: flex;
+        justify-content: space-between;
+        /* align-items: center; */
+        margin-top: 30px;
+        margin-bottom: 30px;
+      }
+      .invoice .address .left-address,
+      .invoice .address .right-address {
+        float: left;
+        width: 30%;
+      }
+      .invoice .address .left-address address,
+      .invoice .address .right-address address,
+      .invoice .address .right-address .pan-gstin {
+        margin-top: 10px;
+      }
+      .invoice .address .right-address .pan-gstin p {
+        margin: 0;
+      }
+      .invoice .invoice-info div {
+        margin-bottom: 5px;
+      }
+      .invoice .order-table {
+        margin-top: 20px;
+        text-align: center;
+      }
+      .invoice .order-table thead {
+        background-color: black;
+        color: white;
+        border: none;
+      }
+      .invoice .order-table thead td {
+        border: none;
+        vertical-align: middle;
+      }
+      .invoice .order-table thead td:nth-child(2),
+      .invoice .order-table tbody td:nth-child(2) {
+        text-align: left;
+      }
+      .invoice .order-table tbody tr.total td:nth-child(3) {
+        text-align: center;
+      }
+      .invoice .order-table tbody tr.total td:first-child {
+        text-align: left;
+      }
+      .invoice .total-info {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-top: 20px;
+      }
+      .invoice .total-info .sign,
+      .invoice .total-info .total-detail {
+        width: 20%;
+      }
+      .invoice .total-info img {
+        border: 1px solid black;
+        width: 100%;
+        height: 90px;
+        display: block;
+      }
+      .invoice .total-info p {
+        margin-bottom: 8px;
+      }
+      .invoice .total-info .sign {
+        text-align: center;
+      }
+      .invoice .csd {
+        margin-top: 20px;
+        margin-bottom: 50px;
+        display: flex;
+        justify-content: flex-start;
+      }
+      .invoice .csd .title {
+        width: 24%;
+      }
+
+      @media (max-width: 700px) {
+        .invoice .address .left-address,
+        .invoice .address .right-address {
+          width: 100%;
+        }
+        .invoice .total-info .sign,
+        .invoice .total-info .total-detail {
+          width: 45%;
+        }
+        .invoice .csd .title {
+          width: 140%;
+        }
+      }
+      @media (min-width: 600px) and (max-width: 991.98px) {
+        .invoice .address .left-address,
+        .invoice .address .right-address {
+          width: 100%;
+        }
+        .invoice .total-info .sign,
+        .invoice .total-info .total-detail {
+          width: 45%;
+        }
+        .invoice .csd .title {
+          width: 90%;
+        }
+      }
+    </style>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor"
+      crossorigin="anonymous"
+    />
+  </head>
+  <body>
+    <div class="invoice">
+      <div class="top-logo">
+        <img
+          src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAKMAAAAYCAYAAACWYU02AAAABHNCSVQICAgIfAhkiAAABM5JREFUaIHtm9t12zgQhj/r7Puyg2griDuIOrA6sFJB1EGUClZbgZUO3IGVCqxUYKcCyxVoH8A5Gg0BEBeKdmL/5+BYJnEjMPgxF+CCOC6BT8AMaNr/G/V+D+zU3x3wE3jsqXcoNMCXxLwz4DNlfVsBh5483wvrFsxwYx3DD2BbWD5Wtg8zYA4sC8sL1sBtbj9mwB1uAiRt28pWbdriBv/gyTcWREhSUw2muMWm63tsnw+JGW5x63ZuOSWBvvK67GKAPsk413zrtK1jlVNozfFD9vR/zJRToRhLGKfAE6cDbz+0wU3OhnphBDcWsfaGwta0M6soPwRu27o2FXXIHNymFtArf0f6agS3hR9wwjwGbukySEw4kgchAss6b0UYtVyUsKOw4gG4D2WaqN8b4GP7+xnHAvuMBnfAt8wypZgDV+QJwxDC+FbxUf0uWYBa17wMZRJhXADX6vkaJ1y5GGOLboAbnKGUw8I1W8xbhhWea/LYseFUtgiVF2HU0v5M+VYrRs05scJ9YK1l9440+AQnhx2XdNW9oDDOgQ/qmbhqSnFOBprhXDnfGddqf8vwbaup7BhyvXm36gld5fi1TrJsz8+8s+KYEMH5YZ6nsKOw4jfz3GsY+4RxLId1LpYc3UhjGEkviddECMKAKxwRCPrYUVhR1L5f6p3XOzDh1FKC1ymMl8BX3AeV6LPvOmY5RD4k6KERY0dhxQ2OPLRcffAV+Kuwg2ND9NADLjIUwhe6ITEJY/53hn796RDmE0Zc44Ts7/b/a5xA+ghsqcqAs0VkbqLWtEaug/XcWOFW5682XZikYd9dAP+07/70rf0cEKERN9+eNHZc4ARWx+vt+HuNGBtvPVdUoQTiud8Tjgal9H0TeZeDsSIwNub+UhEY6Yf2kDR0I1+W6R49z+f0fNOErnP7qrzvg0MGYU29u6nEif+742dleREmvQ372FHr4wucTmhPMdn58y4wG/yvPZ0xFJYcT8bEkMJUDXlx9hDGYkbbTi4zym5Xa5ULw9rDMpYdnziOr48VBfqbOv7oCS5m+2yev7TlOcVZzzBMX/b83jpjMJ4bgFjAtbuBGByWECw7ircixIoCLWdBwvOdC8wdAMEQBpCsyJSVPaa+OxYzYtrJOeShT8jUnGXU9fh2FR87PhDfWbcmvxcNXUPmIdCJPtSejpHtOVVdyBGO0gUmKBHG0sUpZwjtNtgHGb/anUB/awg+EouFgzcmbxA+gbwnbwLn1Okp+sBsaoxb97fPIV6rQ1mLsE8Y5wl5QigR/Ibj+NWytghabKtPsax9dSbpwlO6BzufSLtnMmvzlp74aXDCn2tE2cUTwiX1OpQdzIdI3gbnoK/ReS2TxOZB2hvCcNFt99Wlx6SPQKyxnKRGSPzXDvwNzvXzSaWvnN6XKdFTrCDGJllDTpfrdNf2Sad/cQuldpL0lQw7Lrq9G476U60Obdu8w83BFDduMgfCiDn3ZWIQqzi2wOGUHfsIxLJ9LJrWaWRBlyljKfeqwoKjoISEyveBEoS/95SLpVLWjvUzlmLO+hzM6J+HHcNdvrKX8WJzAU4dSVGrfDqm1H1lw2kx6OuqFnKodsxDFnKLzm69MSaqPasZQmhchm5v2iZ9ZViuCL/GAy4xdK49/w94EB7VUTXMbAAAAABJRU5ErkJggg=="
+          alt=""
+        />
+        <b>RETAIL / TEX INVOICE</b>
+      </div>
+      <div class="address">
+        <div class="left-address">
+          <b>SHIPPING & BILLING ADDRESS</b>
+          <address>
+            <b> Gaurav Virendra</b>
+            <p>
+              G-202, Serenity Complex, Oshiwara, Andheri West Mumbai,
+              Maharashtra - 400102, India
+            </p>
+          </address>
+        </div>
+        <div class="right-address">
+          <b>SELLER DETAILS</b>
+          <address>
+            <b>RADHAMANI TEXTILES PVT. LTD.</b>
+            <p>
+              GR FLOOR, 27, VTMS ARCADE, YELLANKUNTE MANGAMANAPALAYA,
+              BOMANHALLI, BENGALURU, BANGALORE, KARNATAKA, INDIA - 560068
+            </p>
+          </address>
+          <div class="pan-gstin">
+            <p><b>PAN Number: </b> ABCDE1234F</p>
+            <p><b>GSTIN Number: </b> 27ABOFS5787M1Z1</p>
+          </div>
+        </div>
+      </div>
+      <div class="row invoice-info">
+        <div class="col-6 col-md-4"><b>Order Number:</b> CAE2212345</div>
+        <div class="col-6 col-md-4"><b>Order Date:</b> 19-APRIL-2022</div>
+        <div class="col-6 col-md-4"><b>Billing State:</b> KARNATAKA-29</div>
+        <div class="col-6 col-md-4"><b>Invoice Number:</b> CAE2212345-5469</div>
+        <div class="col-6 col-md-4"><b>Payment Mode:</b> PREPAID</div>
+        <div class="col-6 col-md-4"><b>State of Supply:</b> MAHARASHTRA-27</div>
+      </div>
+      <div class="order-table table-responsive">
+        <table class="table table-striped">
+          <thead>
+            <tr>
+              <td rowspan="2">S. No.</td>
+              <td rowspan="2">Item Code</td>
+              <td rowspan="2">HSN</td>
+              <td rowspan="2">Qty</td>
+              <td rowspan="2">Unit Price</td>
+              <td rowspan="2">Discount</td>
+              <td rowspan="2">Taxable Value(INR)</td>
+              <td colspan="2">CGST</td>
+              <td colspan="2">SGST / UTGST</td>
+              <td colspan="2">SGST / UTGST</td>
+              <td rowspan="2">Total(INR)</td>
+            </tr>
+            <tr>
+              <td>Rate</td>
+              <td>Amt(INR)</td>
+              <td>Rate</td>
+              <td>Amt(INR)</td>
+              <td>Rate</td>
+              <td>Amt(INR)</td>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>1</td>
+              <td>
+                1234567890 - asdf sadd sadsasdasdasdasd-asd ssfas sdsfddgdd(32)
+                aasd-sda
+              </td>
+              <td>620234</td>
+              <td>1</td>
+              <td>1234.12</td>
+              <td>12.12</td>
+              <td>2134.12</td>
+              <td>1.1</td>
+              <td>1.1</td>
+              <td>1.1</td>
+              <td>1.1</td>
+              <td>12.00</td>
+              <td>123.11</td>
+              <td>1234.12</td>
+            </tr>
+            <tr>
+              <td>2</td>
+              <td>
+                1234567890 - asdf sadd sadsasdasdasdasd-asd ssfas sdsfddgdd(32)
+                aasd-sda
+              </td>
+              <td>620234</td>
+              <td>1</td>
+              <td>1234.12</td>
+              <td>12.12</td>
+              <td>2134.12</td>
+              <td>1.1</td>
+              <td>1.1</td>
+              <td>1.1</td>
+              <td>1.1</td>
+              <td>12.00</td>
+              <td>123.11</td>
+              <td>1234.12</td>
+            </tr>
+            <tr class="total">
+              <td></td>
+              <td colspan="5">Total</td>
+              <td>2134.12</td>
+              <td></td>
+              <td>1.1</td>
+              <td></td>
+              <td>1.1</td>
+              <td></td>
+              <td>123.11</td>
+              <td>1234.12</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="total-info">
+        <div class="sign">
+          <img src="" alt="" />
+          <span>Authorized Signotory</span>
+        </div>
+        <div class="total-detail">
+          <p><b>Total Amount:</b> +1234.12</p>
+          <p><b>Total Tax:</b> +1234.12</p>
+          <p><b>Store Credit:</b> +1234.12</p>
+          <p><b>Discount Coupon:</b> +1234.12</p>
+          <p><b>Shipping Charge:</b> +1234.12</p>
+          <hr />
+          <p><b>Grand Total:</b> 1212.12</p>
+        </div>
+      </div>
+      <div class="csd">
+        <div class="title"><b> CUSTOMER SELF DECLARATION:</b></div>
+        <div>
+          I, Hereby confirm that the content of this packages are being
+          purchased for by internal and personal and not for resale. I furthur
+          understand and agree to <b>Caelum's</b> Terms and Conditions
+        </div>
+      </div>
+    </div>
+    <div class="footer">
+      <p>Registered Address for <b>Caelum</b></p>
+      <p>
+        G-202, Serenity Complex, Oshiwara, Andheri (W), Mumbai-400102 | CIN:
+        xxxxxxxxxxxxxxxxxxxx
+      </p>
+      <p>
+        For more information on your order or to return an item write email to:
+        <b>support@caelum.in</b> or use Contact Us section in our APP
+      </p>
+      <div class="page-right">
+        <p>All disputes will be subjected to Mumbai Jurisdiction only.</p>
+        <p>PAGE 1 / 1</p>
+      </div>
+    </div>
+  </body>
+</html>
