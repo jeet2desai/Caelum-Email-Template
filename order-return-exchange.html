@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Order Return / Exchange</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor"
+      crossorigin="anonymous"
+    />
+    <style>
+      * {
+        margin: 0;
+        box-sizing: border-box;
+        font-family: "Roboto", sans-serif;
+      }
+
+      /* Header */
+      .header {
+        padding: 30px;
+        text-align: center;
+        background-color: black;
+      }
+
+      /* Footer */
+      .footer {
+        text-align: center;
+        background-color: #f5f5f5;
+        padding: 30px 10px 20px 10px;
+      }
+      .footer .social-icon img {
+        width: 50px;
+        height: 50px;
+        margin: 0px 20px;
+      }
+      .footer .footer-content {
+        margin-top: 24px;
+      }
+      .footer .footer-content p {
+        font-size: 18px;
+        margin-bottom: 20px;
+        color: #666666;
+      }
+      .footer .footer-content p span {
+        color: blue;
+      }
+
+      /* Email Content */
+      .email-content {
+        margin-top: 30px;
+        margin-bottom: 30px;
+      }
+      .email-content .heading {
+        text-align: center;
+      }
+      .email-content .heading .heading-content {
+        margin-top: 15px;
+      }
+      .email-content .heading .heading-content p,
+      .email-content .shipping-summary .summary p {
+        margin-bottom: 0;
+      }
+      .email-content .orders {
+        margin-top: 30px;
+      }
+
+      .email-content .orders {
+        margin-top: 20px;
+        margin-bottom: 40px;
+      }
+      .email-content .order {
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        margin-top: 10px;
+      }
+      .email-content .orders > p {
+        margin-bottom: 0;
+        margin-top: 15px;
+      }
+      .email-content .order .content {
+        margin-left: 10px;
+      }
+      .email-content .order .content p {
+        margin-bottom: 0;
+        font-size: 20px;
+      }
+      .email-content .orders .order-image img {
+        width: 100px;
+        border-radius: 5px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="header">
+      <img
+        src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAIgAAAAUCAYAAABWHnVqAAAABHNCSVQICAgIfAhkiAAABFhJREFUaIHtWu1V2zAUvcrp/2YD3AmaTkA6AWzQbAAb4E4AnYAwQdMJCBMQJiBMQDrB7Q89wbMsS7LsENrTe45PPqz3YenpvifJBgGQnAI4ATAHUMmnxlaujXzeGGN2IV1DIH5cAIjpngP4boxZ99A5Ezl6t58AbIwxmwJf56L3o3frN4B1SCfJGYCF+OGesRI/rvr0KckKwLUx5muB76cAKmPMVU7jmuQzLTby+5TkXK6a5IpN+AE0CsSWxtq7dqX2SVae7nTn5OnVfbOTgEzJnCuZ00K7pwP6YktymWo0JXmvHizqqLRflTqVggzgMxU62q1kJpbY2I4d5F5Q57LaXMkkAyph97an3CLm60R9X8NSJAAsjDGrmGKhvwUsHe4DSwAPGe2C9J2JbaHc3jAgVbuxm/cM9lo+j0M3JwAg9PpZ/rtJBYeDPEycmgpAcgHr8CLDh1FSwz+ASn2/yBGQfj5Sv9vsFcjFVatR3Mi8lBY79E0ltdTyO5piBtpav7cUM8Cuj+TzeCk2KDNBc5Y+GWN60a4xZj3yCmYJW/n/Z4ZMdEzqKItIMBzB9rVDS88EzSXsQXMybWF8AuB8H8vmN8Ih+tAN7A/1X6oWqSHL6YCeF0zQLE5Ki73BkDR1CeAutwYSuaIVzB5xiABxgbACcKf+Pw81lsA5hg0SPeatvvwwkoNjoIaN4DXJID12LOG+ABitBvpLUQE23Uvt5vrphGQVKBtq2HJi6bHMkdeuscwFAhH0FhAnzwD8gqU9oy6dIx/kcvc+4YCs947wkhpkR1mzSK0beuwBbwe6Pf60u6UO92N6nQNZtTxKRd1iAr3S6JAtXmbvaRWjN73eZBXj2/J8oC5i5Zm3nvwu1BawDNKIoI6KeJ84h50Bdd/CVNpnDcKB4J/LjA41Xi9918Uiij38SaVZuDn+gWir8UYgOUvNtBiDjGB/HwzS2FfKlHFj0DvYlWwrlfgsQnss0TofIrlU7RqF7SQQbWd9WWQA67hIjgXle1ulRCEF4cvxQ2bfuOAsWQE52Qb7Bsb1GnYLIXRKrO22/ZWZrPPQvR9lXZBIDS6nEnJuxzFaQ+TMxtLZz8zDur76vRmZZGS+1oG9J4Oy1fIxwCLB02W+Hth1sxhf6V4HSdJhWpru24HO8eRxuOdTsG0qyDJ1dwZ5X/1sppnnWD/y9Zg+e+/Hk3dpMmiDzTQaDFYvkB5jxmZsrmpI8jpkXJS61wOy9yHEhjvGT3Z8wJepujcl+Y1k0a6rp/uR5Il7VtF9TPIny2oDPSuf6U0i0X8h9zd9+jD0DJH7yckovmjE06I83Jpt3NN7R4Nk1j6EBMaFJ+8GpeWQap+DXgMonXaWqZssLNzFjk5jjyRv5XK4YkFwiO5LpeeSNqBDKWQZewa2s8et6JqZhBP69TwfO9jX83LX+jN073hu/d0+9ktbLfkBvoSwGXI2JPZmaBaAG9h3WUrZL9g/ofEgOU3Z6dL3BwXrmrGDfM0dAAAAAElFTkSuQmCC"
+        alt=""
+      />
+    </div>
+    <div class="email-content container">
+      <div class="heading">
+        <h2>Ready to be pickup</h2>
+        <div class="heading-content">
+          <p>
+            Hey <b>Gaurav</b>, Caelum service person will come to pick up
+            returned order on 20th March 2022 from 2-3PM. Please give him
+            package for which you have requested return.
+          </p>
+        </div>
+      </div>
+      <div class="orders">
+        <p>Items to be picked up</p>
+        <div class="order">
+          <div class="order-image">
+            <img
+              src="https://caelumgaurav-65468-ruby.b65468.dev.eastus.az.svc.builder.cafe/rails/active_storage/blobs/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBBaGNNIiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--c415a25784363258037d016e5d0483a33e8db13f/3440f1f9-002e-423f-938a-90fd16dd5e351596544358091-Roadster-Men-Tshirts-5761596544356729-5.webp"
+              alt=""
+            />
+          </div>
+          <div class="content">
+            <p><b>ADIDAS</b></p>
+            <p>Men Green Grey Printed Round Neck Pure Cotton T-shirt</p>
+            <p>Size: L</p>
+            <p>Qty: 1</p>
+          </div>
+        </div>
+        <div class="order">
+          <div class="order-image">
+            <img
+              src="https://caelumgaurav-65468-ruby.b65468.dev.eastus.az.svc.builder.cafe/rails/active_storage/blobs/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBBaGNNIiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--c415a25784363258037d016e5d0483a33e8db13f/3440f1f9-002e-423f-938a-90fd16dd5e351596544358091-Roadster-Men-Tshirts-5761596544356729-5.webp"
+              alt=""
+            />
+          </div>
+          <div class="content">
+            <p><b>ADIDAS</b></p>
+            <p>Men Green Grey Printed Round Neck Pure Cotton T-shirt</p>
+            <p>Size: L</p>
+            <p>Qty: 1</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="footer">
+      <div class="social-icon">
+        <img
+          src="https://cdn-icons-png.flaticon.com/128/174/174848.png"
+          alt=""
+        />
+        <img
+          src="https://cdn-icons.flaticon.com/png/128/3536/premium/3536424.png?token=exp=1653640902~hmac=7e24246463b42540f59c746d76fcda8b"
+          alt=""
+        />
+        <img
+          src="https://cdn-icons.flaticon.com/png/128/3536/premium/3536505.png?token=exp=1653640968~hmac=eaec13c31551b30642a407a435cdbf19"
+          alt=""
+        />
+        <img
+          src="https://cdn-icons-png.flaticon.com/128/2111/2111463.png"
+          alt=""
+        />
+      </div>
+      <div class="footer-content">
+        <p>Not interestad in updates from CAELUM? <span>Unsubscribe</span></p>
+        <p>&copy; 2022 CAELUM. All Rights Reserved.</p>
+      </div>
+    </div>
+  </body>
+</html>
